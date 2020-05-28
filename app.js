@@ -231,4 +231,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('keyup', control);
+
+  const keyRotate = document.querySelector('.mobile-controls__up');
+  const keyLeft = document.querySelector('.mobile-controls__left');
+  const keyDown = document.querySelector('.mobile-controls__down');
+  const keyRight = document.querySelector('.mobile-controls__right');
+
+  keyRotate.addEventListener('click', rotate);
+  keyLeft.addEventListener('click', moveLeft);
+  keyDown.addEventListener('click', moveDown);
+  keyRight.addEventListener('click', moveRight);
 })

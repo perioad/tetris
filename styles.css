@@ -23,6 +23,15 @@ html {
   align-items: center;
 }
 
+@media only screen and (max-width: 500px) {
+  .tetris {
+    width: 95vw;
+    height: 95vh;
+    padding-top: 15px;
+    justify-content: space-between;
+  }
+}
+
 .tetris__score {
   padding: 20px 30px;
   margin: 15px;
@@ -31,6 +40,14 @@ html {
   color: bisque;
 
   animation: score-floating-animation 1.4s ease-in-out alternate infinite;
+}
+
+@media only screen and (max-width: 500px) {
+  .tetris__score {
+    font-size: 22px;
+    padding: 10px 20px;
+    margin: 0;
+  }
 }
 
 .tetris__highscore {
@@ -71,6 +88,8 @@ html {
 
 .tetris__game-field {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .main-grid {
@@ -121,4 +140,47 @@ html {
 .main-grid .tetromino-frozen {
   background-color: rgba(122, 255, 200, .5);
   box-shadow: inset 0 0 0 5px rgba(0, 0, 0, .1);
+}
+
+.mobile-controls {
+  margin-top: 35px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 20%;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .mobile-controls {
+    display: flex;
+  }
+}
+
+.mobile-controls__up {
+  padding: 10px;
+  width: 100%;
+}
+
+.mobile-controls__left {
+  width: 33.33333333333333%;
+}
+
+.mobile-controls__down {
+  width: 33.33333333333333%;
+}
+
+.mobile-controls__right {
+  width: 33.33333333333333%;
+}
+
+.mobile-controls__up:active,
+.mobile-controls__left:active,
+.mobile-controls__down:active,
+.mobile-controls__right:active {
+  background-color: rgba(255, 255, 255, 0.5);
 }
