@@ -213,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
       startButton.innerText = 'Pause';
       paint('add');
       timerId = setInterval(moveDown, timeForOneStep);
-      nextRandomTetrominoIndex = getRandomIndex();
       displayNextTetromino();
     }
   })
