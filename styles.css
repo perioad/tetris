@@ -172,13 +172,17 @@ body {
   color: bisque;
 }
 
+
+.tetris__music,
 .tetris__start-button {
   display: inline-block;
   width: 80%;
   padding: .5rem 0;
   font-size: 2rem;
+  text-align: center;
   color: darkgrey;
   background-color: rgba(255, 223, 223, .7);
+  cursor: pointer;
 
   border: none;
   font-family: inherit;
@@ -191,7 +195,9 @@ body {
   }
 
   .tetris__start-button:hover,
-  .tetris__start-button:focus {
+  .tetris__start-button:focus,
+  .tetris__music:hover,
+  .tetris__music:focus {
     background-color: rgb(252, 210, 210);
     color: rgb(255, 245, 245);
     outline: none;
@@ -199,7 +205,8 @@ body {
     transform: scale(1.02);
   }
 
-  .tetris__start-button:active {
+  .tetris__start-button:active,
+  .tetris__music:active {
     color: rgb(255, 245, 245);
     box-shadow: 0 0 .2rem rgba(0, 0, 0, .15);
     transform: scale(1);

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreNumberElement = document.querySelector('#score');
   const highScoreNumberElement = document.querySelector('#highscore');
   const startButton = document.querySelector('#start-button');
+  const musicElement = document.querySelector('.tetris__music');
 
   const highscoreLocalstorage = localStorage.getItem('highscore');
   if (highscoreLocalstorage) {
@@ -240,4 +241,28 @@ document.addEventListener('DOMContentLoaded', () => {
   keyLeft.addEventListener('click', moveLeft);
   keyDown.addEventListener('click', moveDown);
   keyRight.addEventListener('click', moveRight);
+
+  const music = document.getElementById("music");
+
+  function playAudio() {
+    music.play();
+  }
+
+  function pauseAudio() {
+    music.pause();
+  }
+
+  let isMusic = false;
+
+  const toggleMusic = () => {
+    if (isMusic) {
+      pauseAudio();
+      isMusic = !isMusic;
+    } else {
+      playAudio();
+      isMusic = !isMusic;
+    }
+  }
+
+  musicElement.addEventListener('click', toggleMusic);
 })
