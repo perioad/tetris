@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const highscoreLocalstorage = localStorage.getItem('highscore');
   if (highscoreLocalstorage) {
     highScoreNumberElement.innerHTML = highscoreLocalstorage;
-  } else {
-    highScoreNumberElement.innerHTML = 'No highscore yet :c';
   }
 
   let timerId;
@@ -186,7 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
         squares = squaresRemoved.concat(squares);
         squares.forEach(cell => grid.appendChild(cell));
         clearInterval(timerId);
-        timerId = setInterval(moveDown, timeForOneStep -= 50)
+        if (timeForOneStep > 50) {
+          timerId = setInterval(moveDown, timeForOneStep -= 50)
+        } 
       }
     }
   }
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentTetromino.some(index => squares[currentPosition + index].classList.contains('main-grid__frozen'))) {
       clearInterval(timerId);
       startButton.innerText = 'Restart';
-      scoreElement.innerHTML = `Wow! Your final score: <span id="score">${score}</span>!!!!`;
+      scoreElement.innerHTML = `Final score: <span id="score">${score}</span>!`;
       if (highscoreLocalstorage < score) {
         localStorage.setItem('highscore', score);
       }
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keyup', control);
 
-  const keyRotate = document.querySelector('.mobile-controls__up');
+  const keyRotate = document.querySelector('.mobile-controls__rotate');
   const keyLeft = document.querySelector('.mobile-controls__left');
   const keyDown = document.querySelector('.mobile-controls__down');
   const keyRight = document.querySelector('.mobile-controls__right');
